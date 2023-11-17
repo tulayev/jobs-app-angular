@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { catchError, map, mergeMap, of } from 'rxjs'
 import { JobService } from '@app/services/job/job.service'
-import * as actions from './actions'
+import * as jobActions from './job.actions'
 
 @Injectable()
 export class JobEffects {
     getJobs$ = createEffect(() => this.actions$.pipe(
-        ofType(actions.getJobs),
+        ofType(jobActions.getJobs),
         mergeMap(() => this.jobService.getJobs().pipe(
-                map((jobs) => actions.getJobsSuccess({ jobs })),
-                catchError((error) => of(actions.getJobsFailure({ error: error.message })))
+                map((jobs) => jobActions.getJobsSuccess({ jobs })),
+                catchError((error) => of(jobActions.getJobsFailure({ error: error.message })))
             )
         )
     ))

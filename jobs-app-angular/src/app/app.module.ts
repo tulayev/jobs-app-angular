@@ -16,6 +16,7 @@ import { NotificationModule } from '@app/services'
 import { environment } from '@src/environments/environment'
 import { AppState } from './store'
 import { JobEffects, JobReducer } from './store/job'
+import { UserEffects, UserReducer } from './store/user'
 
 const APP_DATE_FORMATS: MatDateFormats = {
     parse: {
@@ -39,8 +40,8 @@ const APP_DATE_FORMATS: MatDateFormats = {
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        StoreModule.forRoot<AppState>({ jobs: JobReducer }),
-        EffectsModule.forRoot([JobEffects]),
+        StoreModule.forRoot<AppState>({ jobs: JobReducer, user: UserReducer }),
+        EffectsModule.forRoot([JobEffects, UserEffects]),
         StoreDevtoolsModule.instrument({
             maxAge: 25, // Retains last 25 states
             logOnly: environment.production, // Restrict extension to log-only mode

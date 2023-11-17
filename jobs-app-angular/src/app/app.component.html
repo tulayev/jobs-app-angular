@@ -1,13 +1,3 @@
 <app-header></app-header>
 
-<div *ngIf="isLoading$ | async">Loading...</div>
-
-<div *ngFor="let job of jobs$ | async">
-    <div>
-        <p>{{ job.title }}</p>
-        <p>{{ job.salary }}</p>
-        <p>{{ job.created_at }}</p>
-    </div>
-</div>
-
 <router-outlet></router-outlet>

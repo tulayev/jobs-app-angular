@@ -7,17 +7,17 @@ export interface Employee {
 }
 
 interface Specialization {
-    id: string
+    id: number
     name: string
 }
 
 interface Skill {
-    id: string
+    id: number
     name: string
 }
 
 interface Qualification {
-    id: string
+    id: number
     name: string
 }
 

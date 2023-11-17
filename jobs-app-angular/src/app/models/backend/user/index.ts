@@ -1,15 +1,14 @@
-import { FieldValue } from 'firebase/firestore'
 import { Employee, Recruiter } from './roles'
 
 export interface User {
-    uid: string
+    id: number
     name: string
     photoUrl: string
     email: string
     country: string
     about?: string
-    roleId: string
+    role_id: number
     role: Employee | Recruiter
-    created: FieldValue
-    updated?: FieldValue
+    created_at: Date
+    updated_at: Date
 }

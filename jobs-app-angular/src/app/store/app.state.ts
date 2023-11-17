@@ -1,5 +1,7 @@
 import { JobState } from './job'
+import { UserState } from './user'
 
 export interface AppState {
-    jobs: JobState
+    jobs: JobState,
+    user: UserState
 }

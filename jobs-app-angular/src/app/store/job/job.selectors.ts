@@ -3,7 +3,7 @@ import { AppState } from '../app.state'
 
 export const selectFeature = (state: AppState) => state.jobs
 
-export const isLoadingSelector = createSelector(
+export const loadingSelector = createSelector(
     selectFeature,
     (state) => state.isLoading
 )

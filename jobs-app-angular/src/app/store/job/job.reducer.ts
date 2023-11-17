@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
-import * as actions from './actions'
 import { Job } from '@app/models/backend'
+import * as jobActions from './job.actions'
 
 export interface JobState {
     isLoading: boolean
@@ -17,16 +17,16 @@ export const initialState: JobState = {
 export const JobReducer = createReducer(
     initialState,
     
-    on(actions.getJobs, (state) => ({ 
+    on(jobActions.getJobs, (state) => ({ 
         ...state, 
         isLoading: true 
     })),
-    on(actions.getJobsSuccess, (state, action) => ({
+    on(jobActions.getJobsSuccess, (state, action) => ({
         ...state,
         isLoading: false,
         jobs: action.jobs,
     })),
-    on(actions.getJobsFailure, (state, action) => ({
+    on(jobActions.getJobsFailure, (state, action) => ({
         ...state,
         isLoading: false,
         error: action.error,
