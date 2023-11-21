@@ -5,7 +5,7 @@ export const selectFeature = (state: AppState) => state.user
 
 export const loadingSelector = createSelector(
     selectFeature,
-    (state) => state.isLoading
+    (state) => state.loading
 )
 
 export const userSelector = createSelector(
@@ -16,6 +16,11 @@ export const userSelector = createSelector(
 export const tokenSelector = createSelector(
     selectFeature,
     (state) => state.token
+)
+
+export const isSignedInSelector = createSelector(
+    selectFeature,
+    (state) => state.isSignedIn
 )
 
 export const errorSelector = createSelector(

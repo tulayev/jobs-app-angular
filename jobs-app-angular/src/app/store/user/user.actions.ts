@@ -31,13 +31,26 @@ export const signInEmailFailure = createAction(
     props<{ error: string }>()
 )
 
+export const authUser = createAction(
+    '[User] Get Auth User'
+)
+
+export const authUserSuccess = createAction(
+    '[User] Get Auth User success',
+    props<{ user: User }>()
+)
+
+export const authUserFailure = createAction(
+    '[User] Get Auth User failure',
+    props<{ error: string }>()
+)
+
 export const signOut = createAction(
     '[User] SignOut'
 )
 
 export const signOutSuccess = createAction(
-    '[User] SignOut success',
-    props<{ token: null }>()
+    '[User] SignOut success'
 )
 
 export const signOutFailure = createAction(

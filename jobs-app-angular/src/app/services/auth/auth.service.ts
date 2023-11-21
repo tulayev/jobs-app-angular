@@ -18,6 +18,10 @@ export class AuthService {
     signInEmail(formData: any): Observable<{ token: string }> {
         return this.httpClient.post<{ token: string }>(`${environment.baseApiUrl}/login`, formData)
     }
+
+    getAuthorizedUser(): Observable<User> {
+        return this.httpClient.get<User>(`${environment.baseApiUrl}/me`)
+    }
    
     signOut(): Observable<null> {
         if (localStorage.getItem('token'))

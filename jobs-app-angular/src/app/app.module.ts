@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from '@app/app-routing.module'
@@ -17,6 +17,7 @@ import { environment } from '@src/environments/environment'
 import { AppState } from './store'
 import { JobEffects, JobReducer } from './store/job'
 import { UserEffects, UserReducer } from './store/user'
+import { TokenInterceptor } from './interceptors'
 
 const APP_DATE_FORMATS: MatDateFormats = {
     parse: {
@@ -53,6 +54,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
     providers: [
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
         { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
     bootstrap: [AppComponent]
 })
