@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from '@app/app-routing.module'
 import { AppComponent } from '@app/app.component'
-import { HeaderComponent } from './components/header/header.component'
 
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
@@ -18,6 +17,7 @@ import { AppState } from './store'
 import { JobEffects, JobReducer } from './store/job'
 import { UserEffects, UserReducer } from './store/user'
 import { TokenInterceptor } from './interceptors'
+import { HeaderModule } from './components'
 
 const APP_DATE_FORMATS: MatDateFormats = {
     parse: {
@@ -33,8 +33,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HeaderComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -50,6 +49,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
         }),
         MatNativeDateModule,
         NotificationModule.forRoot(),
+        HeaderModule
     ],
     providers: [
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

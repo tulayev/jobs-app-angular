@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { markFromGroupTouched, regex, regexErrors } from '@app/shared'
 import { AppState } from '@app/store'
-import { errorSelector, loadingSelector, signInEmail } from '@app/store/user'
+import { loadingSelector, signInEmail } from '@app/store/user'
 import { Store, select } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
@@ -16,11 +16,9 @@ export class LoginComponent implements OnInit {
     form: FormGroup
 
     loading$: Observable<boolean>
-    error$: Observable<string | null>
     
     constructor(private fb: FormBuilder, private store: Store<AppState>) {
         this.loading$ = this.store.pipe(select(loadingSelector))
-        this.error$ = this.store.pipe(select(errorSelector))
     }
 
     ngOnInit(): void {

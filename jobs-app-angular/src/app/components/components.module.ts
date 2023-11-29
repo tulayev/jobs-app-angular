@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FileUploadModule } from './file-upload/file-upload.module'
+import { HeaderModule } from './header/header.module'
 
 
 
@@ -8,10 +8,10 @@ import { FileUploadModule } from './file-upload/file-upload.module'
     declarations: [],
     imports: [
         CommonModule,
-        FileUploadModule
+        HeaderModule
     ], 
     exports: [
-        FileUploadModule
+        HeaderModule
     ]
 })
-export class PopupsModule { }
+export class ComponentsModule { }

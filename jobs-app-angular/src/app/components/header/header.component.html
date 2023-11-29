@@ -1,5 +1,11 @@
 <div class="header">
-    <div class="header__title">Jobs App</div>
+    <div 
+        routerLink="/"
+        class="header__title"
+    >
+        Jobs App
+    </div>
+    
     <div class="header__navigation">
         <a 
             routerLink="demo" 
@@ -16,6 +22,14 @@
         >
             Log In
         </a>
+        <a
+            *ngIf="isSignedIn$ | async" 
+            (click)="logout()" 
+            routerLinkActive="app-a_active" 
+            class="app-a"
+        >
+            Log Out
+        </a>
         <a 
             *ngIf="!(isSignedIn$ | async)" 
             routerLink="auth/registration" 
@@ -25,4 +39,6 @@
             Registration
         </a>
     </div>
+
+    <app-spinner *ngIf="loading$ | async"></app-spinner>
 </div>

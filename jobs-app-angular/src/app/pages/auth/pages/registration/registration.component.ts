@@ -1,9 +1,8 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { User } from '@app/models/backend'
 import { markFromGroupTouched, regex, regexErrors } from '@app/shared'
 import { AppState } from '@app/store'
-import { errorSelector, loadingSelector, signUpEmail, userSelector } from '@app/store/user'
+import { loadingSelector, signUpEmail } from '@app/store/user'
 import { Store, select } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
@@ -18,22 +17,18 @@ export class RegistrationComponent implements OnInit {
     form: FormGroup
 
     loading$: Observable<boolean>
-    error$: Observable<string | null>
-    user$: Observable<User>
     
     constructor(private fb: FormBuilder, private store: Store<AppState>) {
         this.loading$ = this.store.pipe(select(loadingSelector))
-        this.error$ = this.store.pipe(select(errorSelector))
-        this.user$ = this.store.pipe(select(userSelector))
     }
     
     private confirmPasswordValidator(formGroup: FormGroup): { [key: string]: boolean } {
         const password = formGroup.get('password')
         const passwordConfirm = formGroup.get('password_confirm')
 
-        return passwordConfirm.value && password.value !== passwordConfirm.value ? 
-            { confirm: true } :
-            null
+        return passwordConfirm.value && password.value !== passwordConfirm.value 
+            ? { confirm: true } 
+            : null
     }
 
     ngOnInit(): void {

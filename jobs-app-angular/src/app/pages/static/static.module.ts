@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FileUploadModule } from './file-upload/file-upload.module'
 
+import { StaticRoutingModule } from './static-routing.module'
 
 
 @NgModule({
     declarations: [],
     imports: [
         CommonModule,
-        FileUploadModule
-    ], 
-    exports: [
-        FileUploadModule
+        StaticRoutingModule
     ]
 })
-export class PopupsModule { }
+export class StaticModule { }

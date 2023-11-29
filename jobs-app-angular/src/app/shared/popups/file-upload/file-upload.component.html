@@ -1,0 +1,37 @@
+<div class="file-upload">
+    <div class="file-upload__header">
+        <h3>Files uploading</h3>
+    </div>
+
+    <div class="file-upload__content">
+        <div 
+            class="dropzone" 
+            appDropZone
+            (dropped)="onDrop($event)"
+            (hovered)="toggleHover($event)"
+            [class.dropzone_hovered]="isHovering"
+        >
+            <span class="dropzone__label">Drop files here or</span>
+            <div class="dropzone__file">
+                <label class="file">
+                    <input 
+                        type="file" 
+                        class="file__input" 
+                        [multiple]="data.multiple"
+                        (change)="onDrop($event)" 
+                    />
+                    <span class="file__label">Choose</span>
+                </label>
+            </div>
+        </div>
+
+        <div 
+            *ngIf="isError"
+            class="error" 
+        >
+            Choose only one file
+        </div>
+    </div>
+
+    <div class="file-upload__footer"></div>
+</div>

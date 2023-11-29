@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->enum('name', ['employee', 'recruiter']);
+            $table->foreignId('employee_id')
+                ->nullable()
+                ->constrained();
+            $table->foreignId('recruiter_id')
+                ->nullable()
+                ->constrained();
             $table->timestamps();
         });
     }
